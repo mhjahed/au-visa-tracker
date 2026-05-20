@@ -1,0 +1,166 @@
+/* src/components/common/Footer.module.scss */
+
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.footer {
+  background: $navy-blue;
+  border-top: 2px solid rgba($gold, 0.2);
+  color: rgba($white, 0.8);
+  margin-top: auto;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-lg $spacing-lg;
+
+  @include max-md {
+    padding: $spacing-xl $spacing-md $spacing-md;
+  }
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-xl;
+
+  @include max-lg {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include max-md {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.brand {
+  @include flex-start;
+  gap: $spacing-sm;
+  align-items: flex-start;
+}
+
+.brandIcon {
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: rgba($gold, 0.12);
+  border: 1.5px solid rgba($gold, 0.25);
+  border-radius: $radius-md;
+  flex-shrink: 0;
+}
+
+.brandTitle {
+  font-size: $font-size-md;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: 0.25rem;
+}
+
+.brandSub {
+  font-size: $font-size-xs;
+  color: rgba($gold, 0.7);
+  font-weight: 500;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: $spacing-2xl;
+  flex-wrap: wrap;
+
+  @include max-lg {
+    display: none;
+  }
+}
+
+.linkGroup {
+  h4 {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $gold;
+    margin-bottom: $spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  a {
+    font-size: $font-size-sm;
+    color: rgba($white, 0.65);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.info {
+  @include max-lg {
+    grid-column: 1 / -1;
+  }
+}
+
+.infoCard {
+  background: rgba($white, 0.04);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
+  align-items: flex-start;
+
+  i {
+    color: $gold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  p {
+    font-size: $font-size-xs;
+    color: rgba($white, 0.6);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.bottom {
+  border-top: 1px solid rgba($white, 0.1);
+  padding-top: $spacing-md;
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+
+  @include max-md {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.copyright {
+  font-size: $font-size-xs;
+  color: rgba($white, 0.5);
+  margin: 0;
+}
+
+.disclaimer {
+  font-size: $font-size-xs;
+  color: rgba($white, 0.35);
+  margin: 0;
+  font-style: italic;
+}

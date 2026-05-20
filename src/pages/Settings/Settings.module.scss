@@ -1,0 +1,257 @@
+@use 'sass:color';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page { min-height: 100%; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+  @include max-md { padding: $spacing-lg $spacing-md; }
+}
+
+.pageHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.headerLeft { @include flex-start; gap: $spacing-md; }
+
+.pageIcon {
+  width: 52px; height: 52px;
+  @include flex-center;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  color: $white; font-size: 1.5rem; flex-shrink: 0;
+}
+
+.pageTitle { font-size: $font-size-2xl; font-weight: 800; color: $text-primary; margin: 0 0 0.2rem; @include max-md { font-size: $font-size-xl; } }
+.pageSub { font-size: $font-size-xs; color: $text-muted; margin: 0; }
+
+.section { margin-bottom: $spacing-xl; animation: fadeInUp 0.5s ease both; }
+
+.sectionTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 $spacing-md;
+
+  i { color: $light-blue; font-size: 1.2rem; }
+}
+
+.dangerTitle i { color: $status-refused-text; }
+
+// Info grid
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include xs { grid-template-columns: 1fr 1fr; gap: $spacing-sm; }
+}
+
+.infoCard {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  text-align: center;
+  transition: transform $transition-bounce;
+
+  &:hover { transform: translateY(-3px); }
+}
+
+.infoIcon {
+  width: 40px; height: 40px;
+  @include flex-center;
+  margin: 0 auto $spacing-sm;
+  background: rgba($light-blue, 0.1);
+  border-radius: $radius-md;
+  color: $light-blue; font-size: 1.2rem;
+}
+
+.infoLabel { font-size: $font-size-xs; color: $text-muted; font-weight: 500; margin-bottom: 2px; }
+.infoValue { font-size: $font-size-md; font-weight: 800; color: $text-primary; }
+
+// About card
+.aboutCard {
+  @include flex-start;
+  gap: $spacing-lg;
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  padding: $spacing-xl;
+  box-shadow: $shadow-sm;
+
+  @include max-md { flex-direction: column; text-align: center; }
+}
+
+.aboutIcon { font-size: 3rem; flex-shrink: 0; }
+.aboutTitle { font-size: $font-size-lg; font-weight: 800; color: $text-primary; margin: 0 0 $spacing-sm; }
+.aboutDesc { font-size: $font-size-sm; color: $text-muted; line-height: 1.7; margin: 0 0 $spacing-md; }
+
+.techBadges { @include flex-start; gap: $spacing-xs; flex-wrap: wrap; @include max-md { justify-content: center; } }
+
+.techBadge {
+  background: rgba($light-blue, 0.08);
+  color: $light-blue;
+  font-size: $font-size-xs; font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: $radius-full;
+  border: 1px solid rgba($light-blue, 0.15);
+}
+
+// Export
+.exportGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  @include max-lg { grid-template-columns: 1fr; }
+}
+
+.exportCard {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  transition: transform $transition-bounce;
+
+  &:hover { transform: translateY(-3px); }
+}
+
+.exportIcon {
+  width: 44px; height: 44px;
+  @include flex-center;
+  background: rgba($light-blue, 0.1);
+  border-radius: $radius-md;
+  color: $light-blue; font-size: 1.3rem;
+}
+
+.exportTitle { font-size: $font-size-sm; font-weight: 700; color: $text-primary; margin: 0; }
+.exportDesc { font-size: $font-size-xs; color: $text-muted; line-height: 1.5; margin: 0; flex: 1; }
+.exportCount { font-size: $font-size-xs; color: $light-blue; font-weight: 600; }
+
+.exportBtn {
+  @include btn-base;
+  background: $gradient-primary;
+  color: $white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+
+  &:hover { transform: scale(1.03); box-shadow: $shadow-md; }
+}
+
+// Import
+.importCard {
+  @include flex-between;
+  background: $white;
+  border: 1.5px dashed $border-medium;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+
+  @include max-md { flex-direction: column; align-items: stretch; text-align: center; }
+}
+
+.importInfo {
+  @include flex-start;
+  gap: $spacing-md;
+  flex: 1;
+
+  i { font-size: 2rem; color: $light-blue; flex-shrink: 0; }
+  @include max-md { flex-direction: column; }
+}
+
+.importTitle { font-size: $font-size-sm; font-weight: 700; color: $text-primary; margin: 0 0 0.25rem; }
+.importDesc { font-size: $font-size-xs; color: $text-muted; margin: 0; }
+
+.importBtn {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: 0.65rem 1.5rem;
+  background: $gradient-primary;
+  color: $white;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+
+  i { font-size: 1rem; }
+  &:hover { transform: scale(1.03); box-shadow: $shadow-md; }
+}
+
+// Danger
+.dangerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.dangerCard {
+  @include flex-between;
+  background: $white;
+  border: 1.5px solid rgba($status-refused-text, 0.15);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+
+  @include max-md { flex-direction: column; }
+}
+
+.gold .summaryIcon {
+  background: rgba(255, 211, 105, 0.15);
+  color: #B8860B;
+}
+
+.dangerContent {
+  @include flex-start;
+  gap: $spacing-md;
+  flex: 1;
+
+  i { font-size: 1.5rem; color: $status-refused-text; flex-shrink: 0; }
+  h3 { font-size: $font-size-sm; font-weight: 700; color: $text-primary; margin: 0 0 0.25rem; }
+  p { font-size: $font-size-xs; color: $text-muted; margin: 0; }
+}
+
+.dangerBtn {
+  @include btn-base;
+  background: rgba($status-refused-text, 0.08);
+  color: $status-refused-text;
+  border: 1.5px solid rgba($status-refused-text, 0.2);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  white-space: nowrap;
+
+  &:hover { background: $status-refused-text; color: $white; transform: scale(1.03); }
+}
+
+.dangerBtnDelete {
+  @include btn-base;
+  background: $status-refused-text;
+  color: $white;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  white-space: nowrap;
+
+  &:hover { transform: scale(1.03); box-shadow: $shadow-md; }
+}
+
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }

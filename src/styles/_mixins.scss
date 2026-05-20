@@ -1,0 +1,207 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// ============================================
+// RESPONSIVE MIXINS
+// ============================================
+
+@mixin xs {
+  @media (max-width: 575px) { @content; }
+}
+@mixin sm {
+  @media (min-width: 576px) { @content; }
+}
+@mixin md {
+  @media (min-width: 768px) { @content; }
+}
+@mixin lg {
+  @media (min-width: 992px) { @content; }
+}
+@mixin xl {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin xxl {
+  @media (min-width: 1400px) { @content; }
+}
+
+@mixin max-sm {
+  @media (max-width: 575px) { @content; }
+}
+@mixin max-md {
+  @media (max-width: 767px) { @content; }
+}
+@mixin max-lg {
+  @media (max-width: 991px) { @content; }
+}
+@mixin max-xl {
+  @media (max-width: 1199px) { @content; }
+}
+
+// ============================================
+// FLEX MIXINS
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// ============================================
+// GRID MIXIN
+// ============================================
+
+@mixin grid($cols, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+// ============================================
+// CARD MIXIN
+// ============================================
+
+@mixin card($padding: 1.5rem) {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $padding;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-light;
+  transition: box-shadow $transition-base, transform $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================
+// GLASS MORPHISM
+// ============================================
+
+@mixin glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// ============================================
+// BUTTON MIXIN
+// ============================================
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all $transition-bounce;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+
+  &:active { transform: scale(0.96); }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// ============================================
+// TEXT HELPERS
+// ============================================
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ============================================
+// SCROLLBAR
+// ============================================
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-main;
+    border-radius: $radius-full;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($light-blue, 0.4);
+    border-radius: $radius-full;
+    &:hover { background: $light-blue; }
+  }
+}
+
+// ============================================
+// SKELETON
+// ============================================
+
+@mixin skeleton {
+  background: linear-gradient(
+    90deg,
+    #e8edf2 25%,
+    #f4f7fa 50%,
+    #e8edf2 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: $radius-sm;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

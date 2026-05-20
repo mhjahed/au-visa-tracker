@@ -1,0 +1,70 @@
+/* src/components/loaders/PageLoader.module.scss */
+
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.pageLoader {
+  @include flex-center;
+  min-height: calc(100vh - var(--navbar-height));
+  width: 100%;
+}
+
+.loaderContent {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.flag {
+  font-size: 3rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+
+  &:nth-child(1) {
+    border-top-color: $gold;
+    animation-duration: 1.2s;
+  }
+
+  &:nth-child(2) {
+    inset: 6px;
+    border-right-color: $light-blue;
+    animation-duration: 0.9s;
+    animation-direction: reverse;
+  }
+
+  &:nth-child(3) {
+    inset: 12px;
+    border-bottom-color: $blue;
+    animation-duration: 1.5s;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.text {
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  color: $text-muted;
+  font-weight: 500;
+  margin: 0;
+}

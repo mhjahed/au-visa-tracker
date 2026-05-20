@@ -1,0 +1,234 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// ============================================
+// PRIMARY CARDS
+// ============================================
+
+.primaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include xs { grid-template-columns: 1fr 1fr; gap: $spacing-sm; }
+}
+
+.primaryCard {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  animation: fadeInUp 0.5s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: $radius-lg $radius-lg 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.primaryTop {
+  @include flex-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-md;
+}
+
+.primaryIcon {
+  width: 46px;
+  height: 46px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.primaryLabel {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  text-align: right;
+  line-height: 1.4;
+  max-width: 90px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.primaryValue {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1;
+  margin-bottom: $spacing-sm;
+}
+
+.primaryDetail {
+  @include flex-start;
+  gap: 0.3rem;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-bottom: $spacing-sm;
+
+  i { font-size: 0.9rem; flex-shrink: 0; }
+}
+
+.progressBar {
+  height: 5px;
+  background: $border-light;
+  border-radius: $radius-full;
+  overflow: hidden;
+  margin-top: $spacing-sm;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: currentColor;
+  opacity: 0.6;
+}
+
+// ============================================
+// SECONDARY CARDS
+// ============================================
+
+.secondaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include xs { grid-template-columns: 1fr 1fr; gap: $spacing-sm; }
+}
+
+.secondaryCard {
+  @include flex-start;
+  gap: $spacing-md;
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  animation: fadeInUp 0.5s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+
+  @include xs {
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+}
+
+.secondaryIcon {
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.secondaryContent {
+  min-width: 0;
+  flex: 1;
+}
+
+.secondaryValue {
+  font-size: $font-size-xl;
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.secondaryUnit {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.secondaryLabel {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-top: 0.2rem;
+}
+
+.secondaryDetail {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-top: 0.15rem;
+}
+
+// ============================================
+// COLOR THEMES
+// ============================================
+
+.blue {
+  &::before { background: $light-blue; }
+  .primaryIcon, .secondaryIcon { background: rgba($light-blue, 0.1); color: $light-blue; }
+  .progressFill { background: $light-blue; opacity: 0.7; }
+}
+.green {
+  &::before { background: $status-granted-text; }
+  .primaryIcon, .secondaryIcon { background: $status-granted-bg; color: $status-granted-text; }
+  .progressFill { background: $status-granted-text; opacity: 0.7; }
+}
+.red {
+  &::before { background: $status-refused-text; }
+  .primaryIcon, .secondaryIcon { background: $status-refused-bg; color: $status-refused-text; }
+  .progressFill { background: $status-refused-text; opacity: 0.7; }
+}
+.yellow {
+  &::before { background: $status-process-text; }
+  .primaryIcon, .secondaryIcon { background: $status-process-bg; color: $status-process-text; }
+  .progressFill { background: $status-process-text; opacity: 0.7; }
+}
+.purple {
+  &::before { background: #7C3AED; }
+  .primaryIcon, .secondaryIcon { background: rgba(#7C3AED, 0.1); color: #7C3AED; }
+}
+.teal {
+  &::before { background: #0D9488; }
+  .primaryIcon, .secondaryIcon { background: rgba(#0D9488, 0.1); color: #0D9488; }
+}
+.gold {
+  &::before { background: #B8860B; }
+  .primaryIcon, .secondaryIcon {
+    background: rgba(255, 211, 105, 0.15);
+    color: #B8860B;
+  }
+}
+.navy {
+  &::before { background: $navy-blue; }
+  .primaryIcon, .secondaryIcon { background: rgba($navy-blue, 0.08); color: $navy-blue; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

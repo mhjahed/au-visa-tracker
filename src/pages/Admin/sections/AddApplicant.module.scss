@@ -1,0 +1,293 @@
+@use 'sass:color';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.header {
+  @include flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.headerIcon {
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  color: $white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-size: $font-size-xl;
+  font-weight: 800;
+  color: $text-primary;
+  margin: 0 0 0.2rem;
+}
+
+.headerSub {
+  font-size: $font-size-sm;
+  color: $text-muted;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.formSection {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+.sectionTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 $spacing-lg;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1.5px solid $border-light;
+
+  i { color: $light-blue; font-size: 1rem; }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+
+  i { color: $text-muted; font-size: 0.9rem; }
+}
+
+.required {
+  color: $status-refused-text;
+  font-size: $font-size-sm;
+}
+
+.input,
+.select,
+.textarea {
+  height: 42px;
+  padding: 0 $spacing-md;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  color: $text-primary;
+  background: $white;
+  outline: none;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  width: 100%;
+
+  &:focus {
+    border-color: $light-blue;
+    box-shadow: 0 0 0 3px rgba($light-blue, 0.12);
+  }
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &.inputError {
+    border-color: $status-refused-text;
+    box-shadow: 0 0 0 3px rgba($status-refused-text, 0.1);
+  }
+
+  &.inputDisabled {
+    background: $bg-main;
+    color: $text-muted;
+    cursor: not-allowed;
+  }
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%236B7280' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.textarea {
+  height: auto;
+  padding: $spacing-md;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.fieldError {
+  font-size: $font-size-xs;
+  color: $status-refused-text;
+  font-weight: 500;
+}
+
+// Actions
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.cancelBtn {
+  @include btn-base;
+  background: $bg-main;
+  color: $text-secondary;
+  border: 1.5px solid $border-medium;
+  padding: 0.65rem 1.5rem;
+
+  &:hover {
+    background: $border-light;
+    border-color: $border-medium;
+  }
+}
+
+.submitBtn {
+  @include btn-base;
+  background: $gradient-primary;
+  color: $white;
+  padding: 0.65rem 1.5rem;
+  font-weight: 700;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Confirm modal
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($navy-blue, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: $z-modal;
+  @include flex-center;
+  padding: $spacing-md;
+  animation: fadeIn 0.2s ease;
+}
+
+.confirmModal {
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: $shadow-xl;
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $text-primary;
+    margin: $spacing-md 0 $spacing-xs;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $text-muted;
+    margin: 0 0 $spacing-lg;
+
+    strong { color: $text-primary; }
+  }
+}
+
+.confirmIcon {
+  width: 64px;
+  height: 64px;
+  @include flex-center;
+  margin: 0 auto;
+  background: rgba($light-blue, 0.1);
+  border-radius: 50%;
+  color: $light-blue;
+  font-size: 2rem;
+}
+
+.confirmActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.confirmCancel {
+  @include btn-base;
+  flex: 1;
+  background: $bg-main;
+  color: $text-secondary;
+  border: 1.5px solid $border-medium;
+}
+
+.confirmSubmit {
+  @include btn-base;
+  flex: 1;
+  background: $gradient-primary;
+  color: $white;
+  font-weight: 700;
+
+  &:hover { transform: scale(1.03); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.avatarGranted {
+  background: linear-gradient(135deg, $status-granted-text, #054F38);
+}
+.avatarRefused {
+  background: linear-gradient(135deg, $status-refused-text, #7F1D1D);
+}
+.avatarUnderProcess {
+  background: linear-gradient(135deg, $status-process-text, #78340F);
+}

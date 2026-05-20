@@ -1,0 +1,125 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page {
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+
+  @include max-md {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  @include xs {
+    padding: $spacing-md $spacing-sm;
+  }
+}
+
+// Page Header
+.pageHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.pageHeaderLeft {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.pageIcon {
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  color: $white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: $shadow-md;
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: 800;
+  color: $text-primary;
+  margin: 0 0 0.2rem;
+
+  @include max-md {
+    font-size: $font-size-xl;
+  }
+}
+
+.pageSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+.pageHeaderRight {
+  @include flex-start;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.totalPill {
+  @include flex-start;
+  gap: $spacing-xs;
+  background: rgba($light-blue, 0.1);
+  border: 1.5px solid rgba($light-blue, 0.2);
+  color: $light-blue;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-full;
+
+  i { font-size: 1rem; }
+}
+
+// Sections
+.section {
+  margin-bottom: $spacing-lg;
+}
+
+// Table container holds table + pagination together
+.tableContainer {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+// Stats skeleton
+.statsSkeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: repeat(3, 1fr); }
+  @include max-md { grid-template-columns: repeat(2, 1fr); }
+}
+
+.statsSkeleton {
+  height: 110px;
+  background: linear-gradient(90deg, #e8edf2 25%, #f4f7fa 50%, #e8edf2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-lg;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

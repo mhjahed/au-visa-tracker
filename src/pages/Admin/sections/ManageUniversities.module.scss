@@ -1,0 +1,187 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page { animation: fadeInUp 0.4s ease forwards; }
+
+.header {
+  @include flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.headerIcon {
+  width: 52px; height: 52px;
+  @include flex-center;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  color: $white; font-size: 1.5rem; flex-shrink: 0;
+}
+
+.headerTitle { font-size: $font-size-xl; font-weight: 800; color: $text-primary; margin: 0 0 0.2rem; }
+.headerSub { font-size: $font-size-sm; color: $text-muted; margin: 0; }
+
+.addBtn {
+  @include btn-base;
+  margin-left: auto;
+  background: $gradient-primary;
+  color: $white;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+
+  &:hover { transform: scale(1.03); box-shadow: $shadow-md; }
+}
+
+// Add form
+.addForm {
+  background: $white;
+  border: 1.5px solid $light-blue;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: $spacing-sm;
+  align-items: end;
+}
+
+.input {
+  height: 38px;
+  padding: 0 $spacing-sm;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-xs;
+  color: $text-primary;
+  background: $white;
+  outline: none;
+  width: 100%;
+  transition: border-color $transition-fast;
+
+  &:focus { border-color: $light-blue; box-shadow: 0 0 0 2px rgba($light-blue, 0.12); }
+  &::placeholder { color: $text-light; }
+}
+
+.confirmAddBtn {
+  @include btn-base;
+  background: $status-granted-text;
+  color: $white;
+  font-weight: 600;
+  height: 38px;
+  padding: 0 1rem;
+
+  &:hover { transform: scale(1.03); }
+}
+
+// Search
+.searchWrap {
+  @include flex-start;
+  gap: $spacing-sm;
+  background: $white;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  padding: 0 $spacing-md;
+  margin-bottom: $spacing-lg;
+  transition: border-color $transition-fast;
+
+  &:focus-within { border-color: $light-blue; box-shadow: 0 0 0 3px rgba($light-blue, 0.12); }
+  i { font-size: 1rem; color: $text-muted; }
+}
+
+.searchInput {
+  flex: 1; height: 40px;
+  border: none; outline: none;
+  background: transparent;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  color: $text-primary;
+
+  &::placeholder { color: $text-light; }
+}
+
+// Grid
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.card {
+  @include flex-between;
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $spacing-sm $spacing-md;
+  transition: all $transition-fast;
+  animation: fadeInUp 0.3s ease both;
+
+  &:hover { border-color: $light-blue; box-shadow: $shadow-sm; }
+}
+
+.cardTop { @include flex-start; gap: $spacing-sm; min-width: 0; }
+
+.logoWrap {
+  width: 36px; height: 36px;
+  @include flex-center;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: 1px solid $border-light;
+  flex-shrink: 0;
+}
+
+.logo { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
+
+.logoFallback {
+  width: 100%; height: 100%;
+  @include flex-center;
+  background: $gradient-primary; color: $white;
+  font-size: 0.6rem; font-weight: 800;
+}
+
+.cardInfo { min-width: 0; }
+.uniName { font-size: $font-size-xs; font-weight: 600; color: $text-primary; @include text-ellipsis; max-width: 250px; }
+.uniMeta { font-size: 0.65rem; color: $text-muted; }
+
+.cardDelete {
+  @include flex-center;
+  width: 28px; height: 28px;
+  background: rgba($status-refused-text, 0.08);
+  border: none; border-radius: $radius-sm;
+  color: $status-refused-text; cursor: pointer;
+  flex-shrink: 0; transition: all $transition-bounce;
+  padding: 0;
+  i { font-size: 0.9rem; }
+  &:hover { background: $status-refused-text; color: $white; transform: scale(1.1); }
+}
+
+.empty {
+  @include flex-center; flex-direction: column;
+  gap: $spacing-md; padding: $spacing-3xl; color: $text-muted;
+  i { font-size: 3rem; }
+  p { font-size: $font-size-sm; margin: 0; }
+}
+
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba($navy-blue, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: $z-modal; @include flex-center;
+}
+
+.confirmModal {
+  background: $white; border-radius: $radius-xl;
+  padding: $spacing-xl; max-width: 380px; width: 100%; text-align: center; box-shadow: $shadow-xl;
+  h3 { font-size: $font-size-base; color: $text-primary; margin: 0 0 $spacing-lg; }
+}
+
+.confirmActions { display: flex; gap: $spacing-sm; }
+.confirmCancel { @include btn-base; flex: 1; background: $bg-main; color: $text-secondary; border: 1.5px solid $border-medium; }
+.confirmDelete { @include btn-base; flex: 1; background: $status-refused-text; color: $white; font-weight: 700; &:hover { transform: scale(1.03); } }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }

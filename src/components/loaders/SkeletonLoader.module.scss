@@ -1,0 +1,71 @@
+/* src/components/loaders/SkeletonLoader.module.scss */
+
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.skeleton {
+  @include skeleton;
+  display: block;
+}
+
+.skeletonCard {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  pointer-events: none;
+}
+
+.skeletonCardHeader {
+  @include flex-start;
+  gap: $spacing-sm;
+}
+
+.skeletonCardText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.skeletonTable {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  overflow: hidden;
+}
+
+.skeletonTableHeader {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: $bg-main;
+  border-bottom: 1px solid $border-light;
+  align-items: center;
+}
+
+.skeletonTableRow {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $border-light;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.skeletonChart {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.skeletonChartBars {
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-sm;
+  height: 160px;
+}

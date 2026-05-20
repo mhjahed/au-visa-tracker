@@ -1,0 +1,146 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include max-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include xs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+}
+
+.card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-md $spacing-md $spacing-sm;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-light;
+  cursor: default;
+  animation: fadeInUp 0.5s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: $radius-lg $radius-lg 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.cardTop {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+  align-items: flex-start;
+}
+
+.iconWrap {
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cardLabel {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  text-align: right;
+  line-height: 1.3;
+  max-width: 80px;
+}
+
+.cardValue {
+  font-size: $font-size-2xl;
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1;
+  margin-bottom: $spacing-sm;
+
+  @include xs {
+    font-size: $font-size-xl;
+  }
+}
+
+.cardSub {
+  @include flex-start;
+  gap: 0.3rem;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  border-top: 1px solid $border-light;
+  padding-top: $spacing-sm;
+  margin-top: $spacing-xs;
+
+  i { font-size: 0.85rem; flex-shrink: 0; }
+}
+
+// Color themes
+.blue {
+  &::before { background: $light-blue; }
+  .iconWrap {
+    background: rgba($light-blue, 0.1);
+    color: $light-blue;
+  }
+}
+.yellow {
+  &::before { background: $status-process-text; }
+  .iconWrap {
+    background: $status-process-bg;
+    color: $status-process-text;
+  }
+}
+.green {
+  &::before { background: $status-granted-text; }
+  .iconWrap {
+    background: $status-granted-bg;
+    color: $status-granted-text;
+  }
+}
+.red {
+  &::before { background: $status-refused-text; }
+  .iconWrap {
+    background: $status-refused-bg;
+    color: $status-refused-text;
+  }
+}
+.purple {
+  &::before { background: #7C3AED; }
+  .iconWrap {
+    background: rgba(#7C3AED, 0.1);
+    color: #7C3AED;
+  }
+}
+.teal {
+  &::before { background: #0D9488; }
+  .iconWrap {
+    background: rgba(#0D9488, 0.1);
+    color: #0D9488;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

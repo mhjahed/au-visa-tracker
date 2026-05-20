@@ -1,0 +1,309 @@
+/* src/components/navigation/Navbar.module.scss */
+@use 'sass:color';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  background: $navy-blue;
+  z-index: $z-navbar;
+  transition: box-shadow $transition-base, background $transition-base;
+  border-bottom: 2px solid rgba($gold, 0.2);
+
+  &.scrolled {
+    background: rgba($navy-blue, 0.98);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba($gold, 0.4);
+  }
+}
+
+.inner {
+  @include flex-between;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  gap: $spacing-md;
+
+  @include max-md {
+    padding: 0 $spacing-md;
+  }
+}
+
+// ============================================
+// BRAND
+// ============================================
+
+.brand {
+  @include flex-start;
+  gap: $spacing-sm;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform $transition-bounce;
+
+  &:hover {
+    transform: scale(1.02);
+    text-decoration: none;
+  }
+}
+
+.brandIcon {
+  width: 42px;
+  height: 42px;
+  @include flex-center;
+  background: rgba($gold, 0.15);
+  border: 1.5px solid rgba($gold, 0.35);
+  border-radius: $radius-md;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+
+  @include xs {
+    display: none;
+  }
+}
+
+.brandTitle {
+  font-family: $font-primary;
+  font-weight: 700;
+  font-size: $font-size-base;
+  color: $white;
+  line-height: 1.2;
+}
+
+.brandSub {
+  font-family: $font-secondary;
+  font-size: 0.65rem;
+  color: rgba($gold, 0.8);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+// ============================================
+// DESKTOP NAV
+// ============================================
+
+.navLinks {
+  @include flex-center;
+  list-style: none;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+
+  @include max-lg {
+    display: none;
+  }
+}
+
+.navLink {
+  @include flex-center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: rgba($white, 0.75);
+  text-decoration: none;
+  transition: all $transition-base;
+  white-space: nowrap;
+
+  i {
+    font-size: 1.1rem;
+    transition: transform $transition-bounce;
+  }
+
+  &:hover {
+    color: $white;
+    background: rgba($white, 0.08);
+    text-decoration: none;
+
+    i { transform: scale(1.15); }
+  }
+
+  &.active {
+    color: $gold;
+    background: rgba($gold, 0.12);
+    font-weight: 600;
+
+    i { color: $gold; }
+  }
+}
+
+// ============================================
+// RIGHT SIDE
+// ============================================
+
+.navRight {
+  @include flex-center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.adminBtn {
+  @include flex-center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, $gold 0%, color.scale($gold, $lightness: -11%) 100%);
+  color: $navy-blue;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+
+  i { font-size: 1rem; }
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: $shadow-gold;
+    color: $navy-blue;
+    text-decoration: none;
+  }
+
+  span {
+    @include max-lg {
+      display: none;
+    }
+  }
+}
+
+// ============================================
+// HAMBURGER TOGGLE
+// ============================================
+
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: rgba($white, 0.08);
+  border: 1px solid rgba($white, 0.15);
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  padding: 0;
+
+  @include max-lg {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: $white;
+    border-radius: 2px;
+    transition: all $transition-base;
+    transform-origin: center;
+  }
+
+  &.open {
+    background: rgba($gold, 0.15);
+    border-color: rgba($gold, 0.35);
+
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background: $gold;
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background: $gold;
+    }
+  }
+
+  &:hover {
+    background: rgba($white, 0.14);
+  }
+}
+
+// ============================================
+// MOBILE MENU
+// ============================================
+
+.mobileMenu {
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background: color.scale($navy-blue, $lightness: -4%);
+  border-bottom: 2px solid rgba($gold, 0.2);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height $transition-slow, opacity $transition-base;
+  opacity: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  &.mobileOpen {
+    max-height: 600px;
+    opacity: 1;
+  }
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: $spacing-sm 0 $spacing-md;
+}
+
+.mobileLink {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: 0.875rem $spacing-lg;
+  color: rgba($white, 0.8);
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all $transition-fast;
+  border-left: 3px solid transparent;
+
+  i:first-child {
+    font-size: 1.15rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: $white;
+    background: rgba($white, 0.06);
+    border-left-color: rgba($gold, 0.5);
+    padding-left: calc(#{$spacing-lg} + 4px);
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $gold;
+    border-left-color: $gold;
+    background: rgba($gold, 0.08);
+    font-weight: 600;
+  }
+}
+
+.adminMobile {
+  color: rgba($gold, 0.9) !important;
+  border-top: 1px solid rgba($white, 0.08);
+  margin-top: $spacing-sm;
+  padding-top: $spacing-md;
+}

@@ -1,0 +1,228 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.wrapper {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Top row
+.topRow {
+  display: flex;
+  gap: $spacing-md;
+  align-items: stretch;
+
+  @include max-md {
+    flex-direction: column;
+  }
+}
+
+.searchWrap {
+  flex: 1;
+}
+
+.sortWrap {
+  @include flex-start;
+  gap: $spacing-xs;
+  flex-shrink: 0;
+}
+
+.selectLabel {
+  @include flex-center;
+  width: 38px;
+  height: 42px;
+  background: $bg-main;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md 0 0 $radius-md;
+  border-right: none;
+  color: $text-muted;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+// Shared select
+.select {
+  height: 42px;
+  padding: 0 $spacing-md;
+  background: $white;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  color: $text-primary;
+  cursor: pointer;
+  outline: none;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%236B7280' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 2rem;
+
+  &:focus {
+    border-color: $light-blue;
+    box-shadow: 0 0 0 3px rgba($light-blue, 0.12);
+  }
+
+  // sort select specific
+  .sortWrap & {
+    border-radius: 0 $radius-md $radius-md 0;
+    min-width: 170px;
+
+    @include max-md {
+      border-radius: $radius-md;
+      min-width: 100%;
+    }
+  }
+}
+
+// Filters row
+.filtersRow {
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .select {
+    height: 38px;
+    font-size: $font-size-xs;
+    padding: 0 $spacing-sm;
+    min-width: 140px;
+
+    @include max-md {
+      min-width: 100%;
+    }
+  }
+}
+
+.filterLabel {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+// Status chips
+.chipGroup {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.chip {
+  @include flex-start;
+  gap: 0.3rem;
+  padding: 0.4rem 0.875rem;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  border: 1.5px solid $border-medium;
+  background: $white;
+  color: $text-muted;
+  cursor: pointer;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+
+  i { font-size: 0.9rem; }
+
+  &:hover {
+    border-color: $light-blue;
+    color: $light-blue;
+    transform: scale(1.03);
+  }
+
+  &.chipActive {
+    border-color: transparent;
+    transform: scale(1.03);
+  }
+}
+
+// Chip color variants when active
+.chipAll.chipActive {
+  background: $navy-blue;
+  color: $white;
+}
+.chipGranted.chipActive {
+  background: $status-granted-bg;
+  color: $status-granted-text;
+  border-color: rgba($status-granted-text, 0.2);
+}
+.chipRefused.chipActive {
+  background: $status-refused-bg;
+  color: $status-refused-text;
+  border-color: rgba($status-refused-text, 0.2);
+}
+.chipUnderProcess.chipActive {
+  background: $status-process-bg;
+  color: $status-process-text;
+  border-color: rgba($status-process-text, 0.2);
+}
+
+// Clear button
+.clearBtn {
+  @include flex-start;
+  gap: $spacing-xs;
+  padding: 0.4rem 0.875rem;
+  border-radius: $radius-full;
+  border: 1.5px solid $status-refused-bg;
+  background: $status-refused-bg;
+  color: $status-refused-text;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+  align-self: flex-end;
+
+  i { font-size: 1rem; }
+
+  &:hover {
+    background: $status-refused-text;
+    color: $white;
+    transform: scale(1.03);
+  }
+}
+
+// Result row
+.resultRow {
+  @include flex-between;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $border-light;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.resultCount {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $text-muted;
+
+  i { font-size: 1rem; color: $light-blue; }
+
+  strong { color: $text-primary; }
+}
+
+.filterBadge {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $light-blue;
+  background: rgba($light-blue, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+  border: 1px solid rgba($light-blue, 0.2);
+}

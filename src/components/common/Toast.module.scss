@@ -1,0 +1,99 @@
+/* src/components/common/Toast.module.scss */
+
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.container {
+  position: fixed;
+  top: calc(var(--navbar-height) + #{$spacing-md});
+  right: $spacing-lg;
+  z-index: $z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  max-width: 380px;
+  width: calc(100vw - #{$spacing-lg} * 2);
+
+  @include max-md {
+    right: $spacing-sm;
+    width: calc(100vw - #{$spacing-sm} * 2);
+  }
+}
+
+.toast {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  animation: toastSlide 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  border: 1px solid transparent;
+  background: $white;
+  min-height: 52px;
+
+  &.success {
+    border-left: 4px solid $status-granted-text;
+    .icon { color: $status-granted-text; }
+  }
+
+  &.error {
+    border-left: 4px solid $status-refused-text;
+    .icon { color: $status-refused-text; }
+  }
+
+  &.warning {
+    border-left: 4px solid $status-process-text;
+    .icon { color: $status-process-text; }
+  }
+
+  &.info {
+    border-left: 4px solid $light-blue;
+    .icon { color: $light-blue; }
+  }
+}
+
+.icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $text-primary;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.close {
+  @include flex-center;
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  color: $text-muted;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+  padding: 0;
+
+  i { font-size: 1rem; }
+
+  &:hover {
+    background: $bg-main;
+    color: $text-primary;
+  }
+}
+
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

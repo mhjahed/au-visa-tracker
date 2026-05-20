@@ -1,0 +1,152 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: 1fr; }
+}
+
+.chartCard {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base;
+
+  &:hover { box-shadow: $shadow-md; }
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.chartHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.chartTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.25rem;
+
+  i { color: $light-blue; font-size: 1.2rem; }
+}
+
+.chartSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+.rateBadge {
+  background: $status-granted-bg;
+  color: $status-granted-text;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// Donut legend
+.donutLegend {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: $spacing-md;
+  border-top: 1px solid $border-light;
+  padding-top: $spacing-md;
+}
+
+.legendRow {
+  @include flex-between;
+  font-size: $font-size-xs;
+
+  strong {
+    font-weight: 700;
+    color: $text-primary;
+    font-size: $font-size-sm;
+  }
+}
+
+.legendLeft {
+  @include flex-start;
+  gap: $spacing-xs;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.dotGreen { background: $status-granted-text; }
+  &.dotRed { background: $status-refused-text; }
+  &.dotYellow { background: $status-process-text; }
+}
+
+.legendLabel {
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.legendRight {
+  @include flex-start;
+  gap: $spacing-sm;
+}
+
+.legendPct {
+  color: $text-muted;
+  font-size: $font-size-xs;
+  min-width: 32px;
+  text-align: right;
+}
+
+.legendDivider {
+  border-top: 1px dashed $border-light;
+  margin: $spacing-xs 0;
+}
+
+// Trend toggle
+.trendToggle {
+  @include flex-center;
+  gap: 0.25rem;
+  background: $bg-main;
+  border-radius: $radius-md;
+  padding: 0.25rem;
+  border: 1px solid $border-light;
+  flex-shrink: 0;
+}
+
+.toggleBtn {
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: $radius-sm;
+  font-family: $font-primary;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  background: transparent;
+  cursor: pointer;
+  transition: all $transition-bounce;
+
+  &:hover { color: $light-blue; }
+
+  &.toggleActive {
+    background: $white;
+    color: $navy-blue;
+    box-shadow: $shadow-sm;
+  }
+}

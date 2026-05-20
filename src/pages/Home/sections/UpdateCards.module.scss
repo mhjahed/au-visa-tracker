@@ -1,0 +1,189 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+
+  @include max-md {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-light;
+  transition: transform $transition-base, box-shadow $transition-base;
+  border-left: 4px solid $status-granted-text;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.nextCard {
+  border-left-color: $light-blue;
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.indicator {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $status-granted-text;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+  &.blue { color: $light-blue; }
+}
+
+.blink {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $status-granted-text;
+  display: inline-block;
+  animation: blink 1.2s step-end infinite;
+  flex-shrink: 0;
+
+  &.blinkBlue { background: $light-blue; }
+}
+
+.time {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  font-weight: 500;
+  background: $bg-main;
+  padding: 0.25rem 0.6rem;
+  border-radius: $radius-full;
+}
+
+// Stats row
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+
+  @include xs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.statItem {
+  @include flex-start;
+  gap: $spacing-xs;
+  background: $bg-main;
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+
+  i {
+    font-size: 1.25rem;
+    color: $light-blue;
+    flex-shrink: 0;
+
+    &.green { color: $status-granted-text; }
+    &.red { color: $status-refused-text; }
+    &.yellow { color: $status-process-text; }
+  }
+}
+
+.statVal {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.statKey {
+  display: block;
+  font-size: 0.65rem;
+  color: $text-muted;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+// Note
+.note {
+  @include flex-start;
+  gap: $spacing-xs;
+  background: rgba($status-granted-text, 0.05);
+  border: 1px solid rgba($status-granted-text, 0.15);
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-xs;
+  color: $status-granted-text;
+  margin-bottom: $spacing-sm;
+
+  i { flex-shrink: 0; font-size: 1rem; }
+
+  &.noteBlue {
+    background: rgba($light-blue, 0.06);
+    border-color: rgba($light-blue, 0.2);
+    color: $blue;
+  }
+}
+
+.updatedBy,
+.scheduledBy {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $border-light;
+
+  i { font-size: 0.9rem; }
+}
+
+// Next card content
+.nextContent {
+  @include flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($light-blue, 0.05);
+  border-radius: $radius-md;
+  border: 1px solid rgba($light-blue, 0.1);
+}
+
+.nextIconWrap {
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  background: rgba($light-blue, 0.1);
+  border-radius: $radius-md;
+  color: $light-blue;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.nextDate {
+  font-size: $font-size-md;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.nextTime {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-top: 0.2rem;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

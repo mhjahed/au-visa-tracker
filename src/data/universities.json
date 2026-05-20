@@ -1,0 +1,167 @@
+[
+  {
+    "id": "UOM",
+    "name": "University of Melbourne",
+    "shortName": "Melbourne",
+    "logo": "uom.png",
+    "state": "Victoria",
+    "city": "Melbourne",
+    "category": "Group of Eight",
+    "ranking": 1,
+    "website": "https://www.unimelb.edu.au"
+  },
+  {
+    "id": "USYD",
+    "name": "University of Sydney",
+    "shortName": "Sydney",
+    "logo": "usyd.png",
+    "state": "New South Wales",
+    "city": "Sydney",
+    "category": "Group of Eight",
+    "ranking": 2,
+    "website": "https://www.sydney.edu.au"
+  },
+  {
+    "id": "MONASH",
+    "name": "Monash University",
+    "shortName": "Monash",
+    "logo": "monash.png",
+    "state": "Victoria",
+    "city": "Melbourne",
+    "category": "Group of Eight",
+    "ranking": 3,
+    "website": "https://www.monash.edu"
+  },
+  {
+    "id": "UQ",
+    "name": "University of Queensland",
+    "shortName": "Queensland",
+    "logo": "uq.png",
+    "state": "Queensland",
+    "city": "Brisbane",
+    "category": "Group of Eight",
+    "ranking": 4,
+    "website": "https://www.uq.edu.au"
+  },
+  {
+    "id": "UNSW",
+    "name": "University of New South Wales",
+    "shortName": "UNSW",
+    "logo": "unsw.png",
+    "state": "New South Wales",
+    "city": "Sydney",
+    "category": "Group of Eight",
+    "ranking": 5,
+    "website": "https://www.unsw.edu.au"
+  },
+  {
+    "id": "RMIT",
+    "name": "RMIT University",
+    "shortName": "RMIT",
+    "logo": "rmit.png",
+    "state": "Victoria",
+    "city": "Melbourne",
+    "category": "Technology",
+    "ranking": 6,
+    "website": "https://www.rmit.edu.au"
+  },
+  {
+    "id": "UADL",
+    "name": "University of Adelaide",
+    "shortName": "Adelaide",
+    "logo": "uadl.png",
+    "state": "South Australia",
+    "city": "Adelaide",
+    "category": "Group of Eight",
+    "ranking": 7,
+    "website": "https://www.adelaide.edu.au"
+  },
+  {
+    "id": "UWA",
+    "name": "University of Western Australia",
+    "shortName": "UWA",
+    "logo": "uwa.png",
+    "state": "Western Australia",
+    "city": "Perth",
+    "category": "Group of Eight",
+    "ranking": 8,
+    "website": "https://www.uwa.edu.au"
+  },
+  {
+    "id": "MQU",
+    "name": "Macquarie University",
+    "shortName": "Macquarie",
+    "logo": "mqu.png",
+    "state": "New South Wales",
+    "city": "Sydney",
+    "category": "Research",
+    "ranking": 9,
+    "website": "https://www.mq.edu.au"
+  },
+  {
+    "id": "DEAKIN",
+    "name": "Deakin University",
+    "shortName": "Deakin",
+    "logo": "deakin.png",
+    "state": "Victoria",
+    "city": "Geelong",
+    "category": "Modern",
+    "ranking": 10,
+    "website": "https://www.deakin.edu.au"
+  },
+  {
+    "id": "UTS",
+    "name": "University of Technology Sydney",
+    "shortName": "UTS",
+    "logo": "uts.png",
+    "state": "New South Wales",
+    "city": "Sydney",
+    "category": "Technology",
+    "ranking": 11,
+    "website": "https://www.uts.edu.au"
+  },
+  {
+    "id": "GRIFFITH",
+    "name": "Griffith University",
+    "shortName": "Griffith",
+    "logo": "griffith.png",
+    "state": "Queensland",
+    "city": "Brisbane",
+    "category": "Modern",
+    "ranking": 12,
+    "website": "https://www.griffith.edu.au"
+  },
+  {
+    "id": "CQU",
+    "name": "CQUniversity",
+    "shortName": "CQU",
+    "logo": "cqu.png",
+    "state": "Queensland",
+    "city": "Rockhampton",
+    "category": "Regional",
+    "ranking": 13,
+    "website": "https://www.cqu.edu.au"
+  },
+  {
+    "id": "SCU",
+    "name": "Southern Cross University",
+    "shortName": "SCU",
+    "logo": "scu.png",
+    "state": "New South Wales",
+    "city": "Lismore",
+    "category": "Regional",
+    "ranking": 14,
+    "website": "https://www.scu.edu.au"
+  },
+  {
+    "id": "ACU",
+    "name": "Australian Catholic University",
+    "shortName": "ACU",
+    "logo": "acu.png",
+    "state": "New South Wales",
+    "city": "North Sydney",
+    "category": "Catholic",
+    "ranking": 15,
+    "website": "https://www.acu.edu.au"
+  }
+]

@@ -1,0 +1,184 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.wrapper {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px;
+
+  thead {
+    background: $bg-main;
+    border-bottom: 2px solid $border-light;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    th {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $text-muted;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+
+      &.sortable { cursor: pointer; &:hover { color: $light-blue; } }
+      &.sorted { color: $light-blue; }
+    }
+  }
+}
+
+.thInner {
+  @include flex-start;
+  gap: 0.3rem;
+  i { font-size: 1rem; opacity: 0.7; }
+}
+
+.row {
+  border-bottom: 1px solid $border-light;
+  animation: fadeInRow 0.35s ease both;
+  transition: background $transition-fast;
+
+  &:last-child { border-bottom: none; }
+  &:hover { background: rgba($bg-main, 0.8); }
+
+  td { padding: $spacing-sm $spacing-md; vertical-align: middle; }
+}
+
+.tdNum {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  font-weight: 600;
+  width: 40px;
+}
+
+.catCell {
+  @include flex-start;
+  gap: $spacing-sm;
+  min-width: 180px;
+}
+
+.catIcon {
+  width: 36px;
+  height: 36px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.catName {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.totalBadge {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: 800;
+  color: $navy-blue;
+  background: rgba($navy-blue, 0.07);
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+}
+
+.grantedVal { font-size: $font-size-sm; font-weight: 700; color: $status-granted-text; }
+.refusedVal { font-size: $font-size-sm; font-weight: 700; color: $status-refused-text; }
+.processVal { font-size: $font-size-sm; font-weight: 700; color: $status-process-text; }
+
+.rateCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.rateVal {
+  font-size: $font-size-sm;
+  font-weight: 800;
+  &.rateHigh { color: $status-granted-text; }
+  &.rateMid { color: $status-process-text; }
+  &.rateLow { color: $status-refused-text; }
+}
+
+.rateBarMini {
+  height: 4px;
+  background: $border-light;
+  border-radius: $radius-full;
+  overflow: hidden;
+  width: 70px;
+}
+
+.rateBarFill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 1s ease;
+  opacity: 0.85;
+}
+
+.distBar {
+  display: flex;
+  height: 10px;
+  border-radius: $radius-full;
+  overflow: hidden;
+  background: $border-light;
+  min-width: 100px;
+  gap: 1px;
+}
+
+.distGranted {
+  background: $status-granted-text;
+  height: 100%;
+  border-radius: $radius-full 0 0 $radius-full;
+  transition: width 1s ease;
+  opacity: 0.85;
+}
+
+.distProcess {
+  background: $status-process-text;
+  height: 100%;
+  transition: width 1s ease;
+  opacity: 0.75;
+}
+
+.distRefused {
+  background: $status-refused-text;
+  height: 100%;
+  border-radius: 0 $radius-full $radius-full 0;
+  transition: width 1s ease;
+  opacity: 0.85;
+}
+
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-3xl;
+  color: $text-muted;
+
+  i { font-size: 3rem; }
+  p { font-size: $font-size-sm; margin: 0; }
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}

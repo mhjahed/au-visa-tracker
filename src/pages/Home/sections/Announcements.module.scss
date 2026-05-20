@@ -1,0 +1,109 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.card {
+  @include flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  border: 1px solid transparent;
+  animation: fadeInUp 0.45s ease both;
+  align-items: flex-start;
+  transition: transform $transition-base;
+
+  &:hover { transform: translateX(4px); }
+}
+
+.cardIcon {
+  width: 38px;
+  height: 38px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.cardContent { flex: 1; min-width: 0; }
+
+.cardHeader {
+  @include flex-between;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.cardTitle {
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0;
+}
+
+.cardMeta {
+  @include flex-start;
+  gap: $spacing-xs;
+  flex-shrink: 0;
+}
+
+.pinnedTag {
+  @include flex-start;
+  gap: 0.2rem;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-muted;
+  background: rgba(0,0,0,0.05);
+  padding: 0.15rem 0.5rem;
+  border-radius: $radius-full;
+
+  i { font-size: 0.8rem; }
+}
+
+.date {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  font-family: $font-secondary;
+}
+
+.cardMessage {
+  font-size: $font-size-xs;
+  line-height: 1.6;
+  margin: 0;
+  color: $text-secondary;
+}
+
+// Type variants
+.info {
+  background: rgba($light-blue, 0.06);
+  border-color: rgba($light-blue, 0.15);
+  .cardIcon { background: rgba($light-blue, 0.1); color: $light-blue; }
+}
+
+.warning {
+  background: rgba($status-process-text, 0.05);
+  border-color: rgba($status-process-text, 0.15);
+  .cardIcon { background: $status-process-bg; color: $status-process-text; }
+}
+
+.success {
+  background: rgba($status-granted-text, 0.05);
+  border-color: rgba($status-granted-text, 0.15);
+  .cardIcon { background: $status-granted-bg; color: $status-granted-text; }
+}
+
+.danger {
+  background: rgba($status-refused-text, 0.05);
+  border-color: rgba($status-refused-text, 0.15);
+  .cardIcon { background: $status-refused-bg; color: $status-refused-text; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}

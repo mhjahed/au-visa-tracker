@@ -1,0 +1,223 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.wrapper {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+
+  thead {
+    background: $bg-main;
+    border-bottom: 2px solid $border-light;
+
+    th {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $text-muted;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+  }
+}
+
+.thNum {
+  width: 40px;
+  text-align: center !important;
+}
+
+.row {
+  border-bottom: 1px solid $border-light;
+  transition: background $transition-fast;
+  animation: fadeInUp 0.4s ease both;
+
+  &:last-child { border-bottom: none; }
+  &:hover { background: rgba($bg-main, 0.7); }
+
+  td {
+    padding: $spacing-sm $spacing-md;
+    vertical-align: middle;
+  }
+}
+
+.tdNum {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  font-weight: 600;
+}
+
+// Applicant cell
+.applicantCell {
+  @include flex-start;
+  gap: $spacing-sm;
+  min-width: 160px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  @include flex-center;
+  background: $gradient-primary;
+  color: $white;
+  border-radius: $radius-md;
+  font-weight: 700;
+  font-size: $font-size-sm;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.applicantName {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-primary;
+  white-space: nowrap;
+}
+
+.applicantPassport {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  font-family: $font-secondary;
+  margin-top: 1px;
+}
+
+// University cell
+.uniCell {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.uniCode {
+  font-size: $font-size-xs;
+  font-weight: 700;
+  color: $light-blue;
+  background: rgba($light-blue, 0.08);
+  border-radius: $radius-sm;
+  padding: 0.1rem 0.4rem;
+  width: fit-content;
+  margin-bottom: 2px;
+}
+
+.uniName {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  @include text-ellipsis;
+  max-width: 140px;
+}
+
+// Course cell
+.courseCell {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.courseCategory {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.courseName {
+  font-size: $font-size-xs;
+  color: $text-secondary;
+  @include text-ellipsis;
+  max-width: 180px;
+  margin-top: 2px;
+}
+
+// Date cell
+.dateCell {
+  font-size: $font-size-xs;
+  color: $text-secondary;
+  white-space: nowrap;
+  font-family: $font-secondary;
+}
+
+// Wait cell
+.waitCell {
+  @include flex-start;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.waitNum {
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.waitLabel {
+  font-size: $font-size-xs;
+  color: $text-muted;
+}
+
+// Footer
+.tableFooter {
+  @include flex-between;
+  padding: $spacing-sm $spacing-md;
+  background: $bg-main;
+  border-top: 1px solid $border-light;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+
+  span {
+    font-size: $font-size-xs;
+    color: $text-muted;
+  }
+}
+
+.viewAll {
+  @include flex-start;
+  gap: 0.3rem;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $light-blue;
+  text-decoration: none;
+  transition: gap $transition-fast;
+
+  i { font-size: 1rem; transition: transform $transition-fast; }
+
+  &:hover {
+    color: $navy-blue;
+    text-decoration: none;
+    i { transform: translateX(4px); }
+  }
+}
+
+// Empty
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-3xl;
+  color: $text-muted;
+
+  i { font-size: 3rem; }
+  p { font-size: $font-size-sm; margin: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

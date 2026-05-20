@@ -1,0 +1,176 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page { min-height: 100%; }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+
+  @include max-md { padding: $spacing-lg $spacing-md; }
+  @include xs { padding: $spacing-md $spacing-sm; }
+}
+
+// Page header
+.pageHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.headerLeft {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.pageIcon {
+  width: 52px;
+  height: 52px;
+  @include flex-center;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  color: $white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: $shadow-md;
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: 800;
+  color: $text-primary;
+  margin: 0 0 0.2rem;
+
+  @include max-md { font-size: $font-size-xl; }
+}
+
+.pageSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+// Summary cards
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include xs { grid-template-columns: 1fr 1fr; gap: $spacing-sm; }
+}
+
+.summaryCard {
+  @include flex-start;
+  gap: $spacing-md;
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  animation: fadeInUp 0.45s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+
+  @include xs {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.summaryIcon {
+  width: 44px;
+  height: 44px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.summaryValue {
+  font-size: $font-size-xl;
+  font-weight: 800;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.summaryLabel {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+// Color themes for summary cards
+.blue .summaryIcon { background: rgba($light-blue, 0.1); color: $light-blue; }
+.purple .summaryIcon { background: rgba(#7C3AED, 0.1); color: #7C3AED; }
+.green .summaryIcon { background: $status-granted-bg; color: $status-granted-text; }
+.gold .summaryIcon { background: rgba($gold, 0.15); color: #B8860B; }
+
+
+// Sections
+.section {
+  margin-bottom: $spacing-xl;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  align-items: flex-start;
+}
+
+.sectionTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.3rem;
+
+  i { color: $light-blue; font-size: 1.25rem; }
+
+  @include max-md { font-size: $font-size-lg; }
+}
+
+.sectionSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+.tableInfo {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $text-muted;
+  background: rgba($light-blue, 0.06);
+  border: 1px solid rgba($light-blue, 0.15);
+  border-radius: $radius-md;
+  padding: 0.4rem 0.875rem;
+  white-space: nowrap;
+
+  i { color: $light-blue; font-size: 0.9rem; }
+
+  @include max-md { display: none; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

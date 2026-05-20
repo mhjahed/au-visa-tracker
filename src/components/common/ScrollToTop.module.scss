@@ -1,0 +1,48 @@
+/* src/components/common/ScrollToTop.module.scss */
+
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.btn {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  width: 44px;
+  height: 44px;
+  @include flex-center;
+  background: $gradient-primary;
+  color: $white;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  z-index: $z-sticky;
+  box-shadow: $shadow-lg;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  transition: all $transition-bounce;
+  pointer-events: none;
+
+  i {
+    font-size: 1.4rem;
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  &:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: $shadow-xl;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @include max-md {
+    bottom: $spacing-lg;
+    right: $spacing-md;
+  }
+}

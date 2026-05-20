@@ -1,0 +1,145 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page { animation: fadeInUp 0.4s ease forwards; }
+
+.header { @include flex-start; gap: $spacing-md; margin-bottom: $spacing-xl; flex-wrap: wrap; }
+.headerIcon { width: 52px; height: 52px; @include flex-center; background: $gradient-primary; border-radius: $radius-lg; color: $white; font-size: 1.5rem; flex-shrink: 0; }
+.headerTitle { font-size: $font-size-xl; font-weight: 800; color: $text-primary; margin: 0 0 0.2rem; }
+.headerSub { font-size: $font-size-sm; color: $text-muted; margin: 0; }
+
+.saveBtn {
+  @include btn-base;
+  margin-left: auto;
+  background: $status-granted-text;
+  color: $white; font-weight: 700;
+  padding: 0.6rem 1.5rem;
+
+  &:hover { transform: translateY(-2px) scale(1.03); box-shadow: $shadow-md; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+.cardTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+  border-bottom: 1.5px solid $border-light;
+  background: $bg-main;
+
+  i { color: $status-granted-text; font-size: 1.1rem; }
+}
+
+.cardTitleBlue {
+  i { color: $light-blue; }
+}
+
+.cardBody {
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+
+  @include max-md { grid-template-columns: repeat(2, 1fr); }
+}
+
+.miniField {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  @include flex-start;
+  gap: 0.3rem;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.input {
+  height: 38px;
+  padding: 0 $spacing-sm;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-xs;
+  color: $text-primary;
+  background: $white;
+  outline: none;
+  width: 100%;
+  transition: border-color $transition-fast;
+
+  &:focus { border-color: $light-blue; box-shadow: 0 0 0 2px rgba($light-blue, 0.12); }
+  &::placeholder { color: $text-light; }
+}
+
+.textarea {
+  height: auto;
+  padding: $spacing-sm;
+  border: 1.5px solid $border-medium;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: $font-size-xs;
+  color: $text-primary;
+  background: $white;
+  outline: none;
+  width: 100%;
+  resize: vertical;
+  min-height: 70px;
+  transition: border-color $transition-fast;
+
+  &:focus { border-color: $light-blue; }
+}
+
+// Quick card
+.quickCard {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1.5px solid rgba($gold, 0.3);
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+}
+
+.quickTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 $spacing-md;
+
+  i { color: $gold; font-size: 1.1rem; }
+}

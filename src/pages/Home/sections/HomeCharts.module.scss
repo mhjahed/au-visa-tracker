@@ -1,0 +1,98 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: $spacing-md;
+
+  @include max-lg {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.chartHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.chartTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.2rem;
+
+  i {
+    color: $light-blue;
+    font-size: 1.2rem;
+  }
+}
+
+.chartSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+.successBadge {
+  background: $status-granted-bg;
+  color: $status-granted-text;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: $radius-full;
+}
+
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: $spacing-md;
+  border-top: 1px solid $border-light;
+  padding-top: $spacing-md;
+}
+
+.legendItem {
+  @include flex-between;
+  font-size: $font-size-xs;
+  color: $text-secondary;
+
+  strong {
+    font-weight: 700;
+    color: $text-primary;
+  }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: $spacing-xs;
+
+  &.dotGreen { background: $status-granted-text; }
+  &.dotRed { background: $status-refused-text; }
+  &.dotYellow { background: $status-process-text; }
+}

@@ -1,0 +1,89 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page {
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+
+  @include max-md {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  @include xs {
+    padding: $spacing-md $spacing-sm;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-2xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.sectionTitle {
+  @include flex-start;
+  gap: $spacing-sm;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.3rem;
+
+  i {
+    color: $light-blue;
+    font-size: 1.25rem;
+  }
+
+  @include max-md {
+    font-size: $font-size-lg;
+  }
+}
+
+.sectionSub {
+  font-size: $font-size-xs;
+  color: $text-muted;
+  margin: 0;
+}
+
+.searchWrap {
+  min-width: 280px;
+  max-width: 380px;
+  width: 100%;
+
+  @include max-md {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include max-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include xs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,735 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.page {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+// ============================================
+// HERO
+// ============================================
+
+.hero {
+  background: $gradient-hero;
+  padding: $spacing-3xl $spacing-lg;
+  position: relative;
+  overflow: hidden;
+  margin-top: -$spacing-xl;
+
+  @include max-md { padding: $spacing-2xl $spacing-md; }
+}
+
+.heroBg { position: absolute; inset: 0; pointer-events: none; }
+.c1, .c2, .c3 { position: absolute; border-radius: 50%; background: rgba($white, 0.04); }
+.c1 { width: 500px; height: 500px; top: -200px; right: -150px; }
+.c2 { width: 300px; height: 300px; bottom: -100px; left: 5%; }
+.c3 { width: 180px; height: 180px; top: 40%; left: 45%; }
+
+.heroInner {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.heroIconWrap { position: relative; display: inline-block; margin-bottom: $spacing-xl; }
+
+.heroIcon {
+  width: 80px; height: 80px;
+  @include flex-center;
+  background: rgba($gold, 0.15);
+  border: 2px solid rgba($gold, 0.35);
+  border-radius: $radius-xl;
+  color: $gold; font-size: 2.5rem;
+  position: relative; z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+.heroRing {
+  position: absolute; inset: -12px;
+  border: 2px dashed rgba($gold, 0.2);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+
+.heroTitle {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 800; color: $white;
+  margin: 0 0 $spacing-md; line-height: 1.2;
+}
+
+.heroHighlight { color: $gold; }
+
+.heroSub {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: rgba($white, 0.7);
+  line-height: 1.7;
+  margin: 0 auto $spacing-xl;
+  max-width: 550px;
+}
+
+.heroBadges {
+  display: flex; justify-content: center;
+  gap: $spacing-sm; flex-wrap: wrap;
+}
+
+.heroBadge {
+  @include flex-center;
+  gap: $spacing-xs;
+  background: rgba($white, 0.08);
+  border: 1px solid rgba($white, 0.15);
+  color: rgba($white, 0.85);
+  font-size: $font-size-xs; font-weight: 600;
+  padding: 0.4rem 0.875rem;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  i { color: $gold; font-size: 0.9rem; }
+}
+
+// ============================================
+// CONTAINER
+// ============================================
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include max-md { padding: $spacing-lg $spacing-md; }
+  @include xs { padding: $spacing-md $spacing-sm; }
+}
+
+// ============================================
+// SECTIONS
+// ============================================
+
+.section {
+  margin-bottom: $spacing-2xl;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.sectionHeader { margin-bottom: $spacing-lg; }
+
+.sectionTitle {
+  @include flex-start;
+  gap: $spacing-sm;
+  font-size: $font-size-xl; font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.3rem;
+  i { color: $light-blue; font-size: 1.3rem; }
+
+  @include max-md { font-size: $font-size-lg; }
+}
+
+.heartIcon { color: #F87171 !important; font-size: 1.2rem; }
+.contribTitleIcon { color: #7C3AED; font-size: 1.1rem; }
+
+.sectionSub { font-size: $font-size-sm; color: $text-muted; margin: 0; }
+
+// ============================================
+// DEVELOPER PROFILE CARD
+// ============================================
+
+.profileCard {
+  background: $white;
+  border-radius: $radius-xl;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+  position: relative;
+}
+
+.profileGlow {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #7C3AED, #EC4899, #06B6D4, #FFD369);
+  border-radius: $radius-xl $radius-xl 0 0;
+}
+
+.profileHeader {
+  display: flex;
+  gap: $spacing-xl;
+  padding: $spacing-xl $spacing-xl $spacing-lg;
+  align-items: center;
+
+  @include max-md {
+    flex-direction: column;
+    text-align: center;
+    padding: $spacing-xl $spacing-md $spacing-lg;
+  }
+}
+
+.avatarArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.avatarRing {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #7C3AED, #06B6D4, #EC4899);
+  animation: spin 12s linear infinite;
+}
+
+.avatar {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: $white;
+  @include flex-center;
+  animation: spin 12s linear infinite reverse;
+}
+
+.avatarIcon { color: #7C3AED; font-size: 2.5rem; }
+
+.roleBadge {
+  @include flex-center;
+  gap: $spacing-xs;
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  color: $white;
+  font-size: $font-size-xs; font-weight: 700;
+  padding: 0.35rem 0.875rem;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  i { font-size: 0.8rem; }
+}
+
+.profileInfo { flex: 1; min-width: 0; }
+
+.profileName {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800; color: $text-primary;
+  margin: 0 0 0.2rem;
+}
+
+.profileTitle {
+  font-size: $font-size-base;
+  font-weight: 600;
+  color: #7C3AED;
+  margin: 0 0 $spacing-xs;
+}
+
+.profileTagline {
+  font-size: $font-size-sm;
+  color: $text-muted;
+  margin: 0 0 $spacing-md;
+  line-height: 1.5;
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+
+  @include max-md { justify-content: center; }
+}
+
+.socialGithub,
+.socialWeb {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: 0.55rem 1.25rem;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+
+  svg { font-size: 1.1rem; }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: $shadow-md;
+    text-decoration: none;
+  }
+}
+
+.socialGithub {
+  background: $navy-blue; color: $white;
+  &:hover { color: $white; }
+}
+
+.socialWeb {
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  color: $white;
+  &:hover { color: $white; }
+}
+
+// Profile sections
+.profileSection {
+  padding: 0 $spacing-xl $spacing-lg;
+  border-top: 1px solid $border-light;
+  padding-top: $spacing-lg;
+
+  @include max-md { padding: 0 $spacing-md $spacing-lg; padding-top: $spacing-lg; }
+}
+
+.profileSectionTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-sm; font-weight: 700;
+  color: $text-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 $spacing-md;
+  i { color: $light-blue; font-size: 1rem; }
+}
+
+// Skills
+.skillTags {
+  display: flex; flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.skillTag {
+  border: 1.5px solid #7C3AED;
+  color: #7C3AED;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: $radius-full;
+  background: rgba(#7C3AED, 0.05);
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    background: #7C3AED;
+    color: $white;
+  }
+}
+
+// Dev tech stack
+.devTechGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-sm;
+
+  @include max-lg { grid-template-columns: repeat(4, 1fr); }
+  @include max-md { grid-template-columns: repeat(3, 1fr); }
+  @include xs { grid-template-columns: repeat(3, 1fr); gap: $spacing-xs; }
+}
+
+.devTechItem {
+  @include flex-col-center;
+  gap: $spacing-xs;
+  padding: $spacing-sm;
+  background: $bg-main;
+  border-radius: $radius-md;
+  border: 1px solid $border-light;
+  transition: all $transition-bounce;
+  animation: fadeInUp 0.3s ease both;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: $shadow-md;
+    border-color: rgba($light-blue, 0.3);
+  }
+}
+
+.devTechIcon {
+  font-size: 1.5rem;
+  @include flex-center;
+  width: 36px; height: 36px;
+
+  svg { width: 100%; height: 100%; }
+
+  @include xs { font-size: 1.2rem; }
+}
+
+.devTechName {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $text-muted;
+  text-align: center;
+  @include text-ellipsis;
+  max-width: 100%;
+}
+
+// Contributions
+.contribList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.contribItem {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $bg-main;
+  border-radius: $radius-md;
+  border: 1px solid $border-light;
+  font-size: $font-size-xs;
+  color: $text-secondary;
+  font-weight: 500;
+
+  i { color: #7C3AED; font-size: 1rem; flex-shrink: 0; }
+}
+
+// ============================================
+// STATS GRID
+// ============================================
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $spacing-md;
+
+  @include max-lg { grid-template-columns: repeat(3, 1fr); }
+  @include xs { grid-template-columns: repeat(2, 1fr); gap: $spacing-sm; }
+}
+
+.statCard {
+  background: $white; border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  border: 1px solid $border-light; box-shadow: $shadow-sm;
+  text-align: center;
+  animation: fadeInUp 0.4s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+  &:hover { transform: translateY(-4px); box-shadow: $shadow-md; }
+}
+
+.statIcon {
+  width: 42px; height: 42px;
+  @include flex-center;
+  margin: 0 auto $spacing-sm;
+  background: rgba($light-blue, 0.1);
+  border-radius: $radius-md; color: $light-blue; font-size: 1.3rem;
+}
+
+.statValue {
+  font-size: $font-size-2xl; font-weight: 800;
+  color: $navy-blue; line-height: 1;
+  margin-bottom: $spacing-xs;
+  @include xs { font-size: $font-size-xl; }
+}
+
+.statLabel { font-size: $font-size-xs; color: $text-muted; font-weight: 500; }
+
+// ============================================
+// TECH GRID
+// ============================================
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $spacing-md;
+  @include max-xl { grid-template-columns: repeat(4, 1fr); }
+  @include max-lg { grid-template-columns: repeat(3, 1fr); }
+  @include max-md { grid-template-columns: repeat(2, 1fr); }
+  @include xs { grid-template-columns: 1fr 1fr; gap: $spacing-sm; }
+}
+
+.techCard {
+  background: $white; border-radius: $radius-lg;
+  padding: $spacing-md;
+  border: 1px solid $border-light; box-shadow: $shadow-sm;
+  animation: fadeInUp 0.4s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: $spacing-sm;
+  &:hover { transform: translateY(-4px); box-shadow: $shadow-md; }
+}
+
+.techBorder { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; opacity: 0.7; }
+
+.techIconWrap {
+  width: 42px; height: 42px;
+  @include flex-center;
+  border-radius: $radius-md; font-size: 1.4rem; flex-shrink: 0;
+}
+
+.techInfo { min-width: 0; }
+.techName { font-size: $font-size-sm; font-weight: 700; color: $text-primary; }
+.techRole { font-size: $font-size-xs; color: $text-muted; margin-top: 1px; }
+.techDesc { font-size: $font-size-xs; color: $text-muted; line-height: 1.5; margin: 0; }
+
+// ============================================
+// ARCHITECTURE
+// ============================================
+
+.archGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.archCard {
+  background: $white; border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light; box-shadow: $shadow-sm;
+  text-align: center;
+  animation: fadeInUp 0.4s ease both;
+  transition: transform $transition-bounce;
+  position: relative;
+  &:hover { transform: translateY(-4px); }
+}
+
+.archStep {
+  position: absolute; top: 12px; right: 14px;
+  width: 24px; height: 24px; @include flex-center;
+  background: rgba($light-blue, 0.1);
+  color: $light-blue; border-radius: $radius-full;
+  font-size: $font-size-xs; font-weight: 800;
+}
+
+.archIcon {
+  width: 48px; height: 48px;
+  @include flex-center;
+  margin: 0 auto $spacing-sm;
+  background: $gradient-primary; border-radius: $radius-md;
+  color: $white; font-size: 1.4rem;
+}
+
+.archLabel { font-size: $font-size-sm; font-weight: 700; color: $text-primary; margin: 0 0 $spacing-xs; }
+.archDesc { font-size: $font-size-xs; color: $text-muted; margin: 0; line-height: 1.5; }
+
+// ============================================
+// FEATURES
+// ============================================
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.featureCard {
+  background: $white; border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light; box-shadow: $shadow-sm;
+  animation: fadeInUp 0.4s ease both;
+  transition: transform $transition-bounce, box-shadow $transition-base;
+  position: relative; overflow: hidden;
+  &:hover { transform: translateY(-4px); box-shadow: $shadow-md; }
+}
+
+.featureBorder { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; opacity: 0.7; }
+
+.featureIcon {
+  width: 48px; height: 48px;
+  @include flex-center;
+  border-radius: $radius-md; font-size: 1.4rem;
+  margin-bottom: $spacing-md;
+}
+
+.featureTitle { font-size: $font-size-sm; font-weight: 700; color: $text-primary; margin: 0 0 $spacing-xs; }
+.featureDesc { font-size: $font-size-xs; color: $text-muted; line-height: 1.6; margin: 0; }
+
+// ============================================
+// FOLDER STRUCTURE
+// ============================================
+
+.structureCard {
+  background: $navy-blue;
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+}
+
+.structureCode {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: $font-size-xs;
+  color: rgba($white, 0.85);
+  line-height: 1.8;
+  margin: 0;
+  white-space: pre;
+  @include xs { font-size: 0.65rem; line-height: 1.7; }
+}
+
+// ============================================
+// DESIGN SYSTEM
+// ============================================
+
+.designGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.designCard {
+  background: $white; border-radius: $radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light; box-shadow: $shadow-sm;
+}
+
+.designCardTitle {
+  @include flex-start;
+  gap: $spacing-xs;
+  font-size: $font-size-sm; font-weight: 700;
+  color: $text-primary; margin: 0 0 $spacing-md;
+  i { color: $light-blue; }
+}
+
+.colorSwatches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+  @include xs { grid-template-columns: repeat(2, 1fr); }
+}
+
+.swatch { text-align: center; }
+
+.swatchBox {
+  width: 100%; height: 48px;
+  @include flex-center;
+  border-radius: $radius-md;
+  font-size: 0.6rem; font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  margin-bottom: $spacing-xs;
+}
+
+.swatchLabel { font-size: 0.6rem; color: $text-muted; font-weight: 500; }
+
+.fontList { display: flex; flex-direction: column; gap: $spacing-sm; margin-bottom: $spacing-md; }
+
+.fontItem {
+  @include flex-between;
+  padding: $spacing-sm;
+  background: $bg-main; border-radius: $radius-md;
+  flex-wrap: wrap; gap: $spacing-xs;
+}
+
+.fontSample { font-size: $font-size-base; font-weight: 600; color: $text-primary; }
+.fontRole { font-size: $font-size-xs; color: $text-muted; }
+
+.weightList { display: flex; flex-wrap: wrap; gap: $spacing-xs; }
+
+.weightTag {
+  font-family: 'Poppins', sans-serif;
+  font-size: $font-size-xs; color: $text-secondary;
+  background: $bg-main;
+  padding: 0.25rem 0.6rem; border-radius: $radius-full;
+}
+
+// ============================================
+// CREDITS
+// ============================================
+
+.creditCard {
+  background: $gradient-hero;
+  border-radius: $radius-xl;
+  padding: $spacing-3xl $spacing-xl;
+  position: relative; overflow: hidden;
+  text-align: center;
+  @include max-md { padding: $spacing-2xl $spacing-md; }
+}
+
+.creditBg { position: absolute; inset: 0; pointer-events: none; }
+.cc1, .cc2 { position: absolute; border-radius: 50%; background: rgba($white, 0.04); }
+.cc1 { width: 350px; height: 350px; top: -100px; left: -80px; }
+.cc2 { width: 200px; height: 200px; bottom: -60px; right: 10%; }
+
+.creditContent { position: relative; }
+.creditFlag { font-size: 3rem; margin-bottom: $spacing-md; }
+
+.creditTitle {
+  @include flex-center;
+  gap: $spacing-sm;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 800; color: $white;
+  margin: 0 0 $spacing-md;
+  flex-wrap: wrap; justify-content: center;
+
+  svg { flex-shrink: 0; }
+}
+
+.creditDesc {
+  font-size: $font-size-sm;
+  color: rgba($white, 0.7);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto $spacing-sm;
+}
+
+.creditVersion {
+  font-size: $font-size-xs;
+  color: rgba($gold, 0.7);
+  font-weight: 600;
+  margin: 0 0 $spacing-xl;
+}
+
+.creditActions {
+  @include flex-center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.githubBtn,
+.portfolioBtn,
+.homeLink {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: 0.7rem 1.5rem;
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition: all $transition-bounce;
+  white-space: nowrap;
+
+  svg, i { font-size: 1.1rem; }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: $shadow-lg;
+    text-decoration: none;
+  }
+}
+
+.githubBtn {
+  background: $white; color: $navy-blue;
+  &:hover { color: $navy-blue; }
+}
+
+.portfolioBtn {
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  color: $white;
+  &:hover { color: $white; }
+}
+
+.homeLink {
+  background: rgba($white, 0.1);
+  border: 1.5px solid rgba($white, 0.25);
+  color: $white;
+  &:hover { background: rgba($white, 0.18); color: $white; }
+}
+
+// ============================================
+// KEYFRAMES
+// ============================================
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
