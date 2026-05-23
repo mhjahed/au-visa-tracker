@@ -1,29 +1,29 @@
 {
   "lastUpdate": {
-    "date": "2024-11-22",
-    "time": "13:00",
-    "totalApplications": 12,
-    "granted": 5,
-    "refused": 2,
-    "underProcess": 5,
-    "newToday": 1,
-    "grantedToday": 1,
-    "refusedToday": 0,
-    "note": "Sultana Razia (Deakin) received visa grant today.",
-    "updatedBy": "Admin"
-  },
-  "nextUpdate": {
-    "date": "2024-11-25",
-    "time": "12:00",
-    "note": "Next data update scheduled. Awaiting 3 pending decisions.",
-    "scheduledBy": "Admin"
-  },
+      "date": "2026-05-23",
+      "time": "22:01",
+      "note": "No Visa Granted today. All Applicants are requested to be careful about current circumstances before lodging their visa applications. We appreciate your support for this website.",
+      "updatedBy": "Admin -MH JAHED",
+      "totalApplications": 12,
+      "granted": 5,
+      "refused": 2,
+      "underProcess": 5,
+      "newToday": 0,
+      "grantedToday": 0,
+      "refusedToday": 0
+    },
+    "nextUpdate": {
+      "date": "2026-05-24",
+      "time": "23:59",
+      "note": "Next data update scheduled. ",
+      "scheduledBy": "Admin"
+    },
   "announcements": [
     {
       "id": "ann-001",
       "title": "Processing Times Update",
-      "message": "Australian Home Affairs is currently processing Subclass 500 visas within 60-90 days for Bangladeshi applicants with clean records.",
-      "date": "2024-11-20",
+      "message": "Australian Home Affairs is currently processing Subclass 500 visas within 13-20 days for Bangladeshi applicants.",
+      "date": "2026-05-20",
       "type": "info",
       "pinned": true
     },
@@ -31,7 +31,7 @@
       "id": "ann-002",
       "title": "GTE Requirements Reminder",
       "message": "Applicants are advised to prepare comprehensive GTE (Genuine Temporary Entrant) statements. Recent refusals are mainly GTE-related.",
-      "date": "2024-11-15",
+      "date": "2026-05-15",
       "type": "warning",
       "pinned": true
     },
@@ -39,83 +39,11 @@
       "id": "ann-003",
       "title": "Health Examination",
       "message": "All student visa applicants from Bangladesh must undergo health examination at approved BSMI panel clinics.",
-      "date": "2024-11-10",
+      "date": "2026-01-10",
       "type": "info",
       "pinned": false
     }
   ],
   "history": [
-    {
-      "date": "2024-11-22",
-      "granted": 1,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-11-21",
-      "granted": 0,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-11-20",
-      "granted": 1,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-11-18",
-      "granted": 1,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-11-15",
-      "granted": 0,
-      "refused": 0,
-      "newApplications": 1
-    },
-    {
-      "date": "2024-11-05",
-      "granted": 1,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-10-31",
-      "granted": 1,
-      "refused": 0,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-10-28",
-      "granted": 0,
-      "refused": 1,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-10-15",
-      "granted": 0,
-      "refused": 0,
-      "newApplications": 1
-    },
-    {
-      "date": "2024-10-01",
-      "granted": 0,
-      "refused": 0,
-      "newApplications": 1
-    },
-    {
-      "date": "2024-09-30",
-      "granted": 0,
-      "refused": 1,
-      "newApplications": 0
-    },
-    {
-      "date": "2024-09-20",
-      "granted": 0,
-      "refused": 0,
-      "newApplications": 1
-    }
   ]
 }
