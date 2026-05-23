@@ -34,10 +34,21 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          charts: ['chart.js', 'react-chartjs-2'],
-          utils: ['date-fns', 'uuid'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            // 1. Charts Bundle
+            if (id.includes('chart.js') || id.includes('react-chartjs-2')) {
+              return 'charts';
+            }
+            // 2. Utilities Bundle
+            if (id.includes('date-fns') || id.includes('uuid')) {
+              return 'utils';
+            }
+            // 3. Core Vendor Bundle (React & Routing stuff)
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor';
+            }
+          }
         },
       },
     },
