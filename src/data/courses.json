@@ -1,110 +1,200 @@
 [
-  {
-    "id": "course-001",
-    "name": "Master of Information Technology",
-    "category": "IT & Computing",
-    "icon": "bx-code-alt",
-    "color": "#3B82F6",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-002",
-    "name": "Master of Data Science",
-    "category": "IT & Computing",
-    "icon": "bx-data",
-    "color": "#3B82F6",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-003",
-    "name": "Bachelor of Commerce",
-    "category": "Business & Commerce",
-    "icon": "bx-briefcase",
-    "color": "#F59E0B",
-    "level": "Undergraduate",
-    "duration": "3 years"
-  },
-  {
-    "id": "course-004",
-    "name": "Master of Business Administration",
-    "category": "Business & Commerce",
-    "icon": "bx-building",
-    "color": "#F59E0B",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-005",
-    "name": "Master of Professional Accounting",
-    "category": "Business & Commerce",
-    "icon": "bx-calculator",
-    "color": "#F59E0B",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-006",
-    "name": "Master of Applied Finance",
-    "category": "Business & Commerce",
-    "icon": "bx-line-chart",
-    "color": "#F59E0B",
-    "level": "Postgraduate",
-    "duration": "1.5 years"
-  },
-  {
-    "id": "course-007",
-    "name": "Master of Engineering",
-    "category": "Engineering",
-    "icon": "bx-cog",
-    "color": "#6B7280",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-008",
-    "name": "Bachelor of Nursing",
-    "category": "Health & Medicine",
-    "icon": "bx-plus-medical",
-    "color": "#EF4444",
-    "level": "Undergraduate",
-    "duration": "3 years"
-  },
-  {
-    "id": "course-009",
-    "name": "Master of Public Health",
-    "category": "Health & Medicine",
-    "icon": "bx-heart",
-    "color": "#EF4444",
-    "level": "Postgraduate",
-    "duration": "2 years"
-  },
-  {
-    "id": "course-010",
-    "name": "Bachelor of Science",
-    "category": "Science",
-    "icon": "bx-atom",
-    "color": "#10B981",
-    "level": "Undergraduate",
-    "duration": "3 years"
-  },
-  {
-    "id": "course-011",
-    "name": "Bachelor of Education",
-    "category": "Education",
-    "icon": "bx-book",
-    "color": "#8B5CF6",
-    "level": "Undergraduate",
-    "duration": "4 years"
-  },
-  {
-    "id": "course-012",
-    "name": "Bachelor of Psychology",
-    "category": "Social Sciences",
-    "icon": "bx-brain",
-    "color": "#EC4899",
-    "level": "Undergraduate",
-    "duration": "4 years"
-  }
+{
+      "id": "course-001",
+      "name": "Master of Information Technology",
+      "category": "IT & Computing",
+      "icon": "bx-code-alt",
+      "color": "#3B82F6",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-002",
+      "name": "Master of Data Science",
+      "category": "IT & Computing",
+      "icon": "bx-data",
+      "color": "#3B82F6",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-003",
+      "name": "Bachelor of Commerce",
+      "category": "Business & Commerce",
+      "icon": "bx-briefcase",
+      "color": "#F59E0B",
+      "level": "Undergraduate",
+      "duration": "3 years"
+    },
+    {
+      "id": "course-004",
+      "name": "Master of Business Administration",
+      "category": "Business & Commerce",
+      "icon": "bx-building",
+      "color": "#F59E0B",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-005",
+      "name": "Master of Professional Accounting",
+      "category": "Business & Commerce",
+      "icon": "bx-calculator",
+      "color": "#F59E0B",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-006",
+      "name": "Master of Applied Finance",
+      "category": "Business & Commerce",
+      "icon": "bx-line-chart",
+      "color": "#F59E0B",
+      "level": "Postgraduate",
+      "duration": "1.5 years"
+    },
+    {
+      "id": "course-007",
+      "name": "Master of Engineering",
+      "category": "Engineering",
+      "icon": "bx-cog",
+      "color": "#6B7280",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-008",
+      "name": "Bachelor of Nursing",
+      "category": "Health & Medicine",
+      "icon": "bx-plus-medical",
+      "color": "#EF4444",
+      "level": "Undergraduate",
+      "duration": "3 years"
+    },
+    {
+      "id": "course-009",
+      "name": "Master of Public Health",
+      "category": "Health & Medicine",
+      "icon": "bx-heart",
+      "color": "#EF4444",
+      "level": "Postgraduate",
+      "duration": "2 years"
+    },
+    {
+      "id": "course-010",
+      "name": "Bachelor of Science",
+      "category": "Science",
+      "icon": "bx-atom",
+      "color": "#10B981",
+      "level": "Undergraduate",
+      "duration": "3 years"
+    },
+    {
+      "id": "course-011",
+      "name": "Bachelor of Education",
+      "category": "Education",
+      "icon": "bx-book",
+      "color": "#8B5CF6",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "id": "course-012",
+      "name": "Bachelor of Psychology",
+      "category": "Social Sciences",
+      "icon": "bx-brain",
+      "color": "#EC4899",
+      "level": "Undergraduate",
+      "duration": "4 years"
+    },
+    {
+      "name": "Masters of Science",
+      "category": "Science",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-atom",
+      "color": "#3B82F6",
+      "id": "course-3d6da4dc"
+    },
+    {
+      "name": "Masters of Biotech",
+      "category": "Health & Medicine",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-plus-medical",
+      "color": "#3B82F6",
+      "id": "course-fc1f8f55"
+    },
+    {
+      "name": "Masters of Computer Science",
+      "category": "IT & Computing",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-code-alt",
+      "color": "#3B82F6",
+      "id": "course-06d251c9"
+    },
+    {
+      "name": "Masters of Business Analytics",
+      "category": "Business & Commerce",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-briefcase",
+      "color": "#3B82F6",
+      "id": "course-ab4a5355"
+    },
+    {
+      "name": "Master of Agriculture & Food",
+      "category": "Other",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-layer",
+      "color": "#3B82F6",
+      "id": "course-5b3a0844"
+    },
+    {
+      "name": "Master of Electrical Engineering",
+      "category": "Engineering",
+      "level": "Postgraduate",
+      "duration": "2",
+      "icon": "bx-cog",
+      "color": "#3B82F6",
+      "id": "course-459232b0"
+    },
+    {
+      "name": "Bachelor of Civil Engineering",
+      "category": "Engineering",
+      "level": "Undergraduate",
+      "duration": "3",
+      "icon": "bx-cog",
+      "color": "#3B82F6",
+      "id": "course-eeefd2b6"
+    },
+    {
+      "name": "Bachelor of Computer Science",
+      "category": "IT & Computing",
+      "level": "Undergraduate",
+      "duration": "3",
+      "icon": "bx-code-alt",
+      "color": "#3B82F6",
+      "id": "course-b28d74b2"
+    },
+    {
+      "name": "Diploma",
+      "category": "Other",
+      "level": "Diploma",
+      "duration": "1",
+      "icon": "bx-layer",
+      "color": "#3B82F6",
+      "id": "course-51b35825"
+    },
+    {
+      "name": "Bachelor of Information Technology",
+      "category": "IT & Computing",
+      "level": "Undergraduate",
+      "duration": "3",
+      "icon": "bx-code-alt",
+      "color": "#3B82F6",
+      "id": "course-ab289eb8"
+    }
 ]
