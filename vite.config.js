@@ -26,8 +26,6 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         quietDeps: true,
-        // Adding this helps silence the SASS warnings you saw
-        silenceDeprecations: ['import-levels', 'legacy-js-api', 'color-functions'],
       },
     },
   },
@@ -36,17 +34,10 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Changed from an object to a function to fix the sc-500/TypeError
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'vendor';
-            }
-            if (id.includes('chart.js') || id.includes('react-chartjs-2')) {
-              return 'charts';
-            }
-            return 'utils';
-          }
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          charts: ['chart.js', 'react-chartjs-2'],
+          utils: ['date-fns', 'uuid'],
         },
       },
     },
