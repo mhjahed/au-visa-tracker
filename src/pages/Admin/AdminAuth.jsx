@@ -124,12 +124,12 @@ const AdminAuth = ({ onVerify, isLocked, lockRemaining, attempts, error }) => {
 
         {/* Hint */}
         <div className={styles.hint}>
-          <i className='bx bx-info-circle'></i>
+          <i className='bx bx-info-circle'></i>If you are not Admin then please go back.
           
         </div>
       </div>
     </div>
-  )
+  ) 
 }
 
 export default AdminAuth
